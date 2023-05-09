@@ -39,7 +39,7 @@ for (let i in skills) {
     let li = document.createElement('li')
     li.classList.add('skill', 'body-text', 'tag')
     li.innerHTML = `
-        <img src="${skills[i].img}" alt="${skills[i].name}" /> ${skills[i].name}
+        <img class="icon" src="${skills[i].img}" alt="${skills[i].name}" /> ${skills[i].name}
     `
     skillsContainer.append(li)
 }
@@ -104,7 +104,7 @@ for (let i in tabsTitle) {
     div.classList.add('tab-title')
     div.setAttribute('id', i)
     div.innerHTML = `
-        <img src="${tabsTitle[i].img}" alt="" />
+        <img class="icon" src="${tabsTitle[i].img}" alt="" />
         <div class="title">
             <big>${tabsTitle[i].company}</big><br />
             <small>${tabsTitle[i].role}</small>
@@ -249,4 +249,55 @@ for (let prop in projectList) {
     div.append(p)
 
     projectContainer.append(div)
+}
+
+
+
+// Theme Switcher
+
+if (!localStorage.getItem('theme')) {
+    localStorage.setItem('theme', 'light')
+}
+
+let getTheme = localStorage.getItem('theme')
+
+// If user switch on the dark mode button 
+// Set item local Storage 'theme' => dark
+
+changeTheme() // change the theme onload 
+
+document.querySelector('.ic-sun').addEventListener('click', function () {
+    if (getTheme == 'light') {
+        // On click set to dark mode
+        localStorage.setItem('theme', 'dark')
+        getTheme = 'dark'
+        
+    } else if (getTheme == 'dark') {
+        // On click set to light mode
+        localStorage.setItem('theme', 'light')
+        getTheme = 'light'
+    }
+
+    changeTheme()
+})
+
+
+function changeTheme() {
+    if (getTheme == 'dark') document.querySelector('html').classList.add('dark'), InvertColor();
+    else document.querySelector('html').classList.remove('dark'), InvertColor()
+}
+
+function InvertColor() {
+    if (document.querySelector('html').classList.contains('dark')) {
+        // console.log('true');
+        document.querySelectorAll('.icon').forEach(icon => {
+            icon.style.filter = "invert(1)"
+        });
+    } else {
+        // console.log('false');
+        document.querySelectorAll('.icon').forEach(icon => {
+            icon.style.filter = "invert(0)"
+        });
+        
+    }
 }
