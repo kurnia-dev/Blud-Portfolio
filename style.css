@@ -351,7 +351,7 @@ h3.project-title {
 /* cta */
 
 #cta .container {
-  padding: 7.85em 27.5em;
+  padding: 7.85em clamp(40px, 10vw, 275px);
   width: 100%;
   text-align: center;
   background: var(--secondary-bg-color);
@@ -386,7 +386,104 @@ footer .footer-links {
   section,
   footer {
     max-width: 1024px;
-    padding: 9.2em clamp(60px, 10vw, 112px);
+    padding: 9.2em clamp(25px, 8vw, 112px);
     margin: 0 auto;
+  }
+
+  .project-container {
+    grid-template-columns: auto;
+    margin-top: 42px;
+  }
+
+  .project {
+    max-width: 562px;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  nav a:nth-child(1) {
+    display: none;
+  }
+  nav {
+    gap: clamp(14px, 3vw, 30px);
+  }
+  .tab-wrapper {
+    gap: clamp(18px, 5vw, 32px);
+  }
+
+  p.lead {
+    text-align: left;
+  }
+}
+@media screen and (max-width: 520px) {
+  body {
+    font-size: 9px;
+  }
+
+  nav a:nth-child(2),
+  nav a:nth-child(3) {
+    display: none;
+  }
+  nav button.filled {
+    transform: scale(0.85);
+  }
+
+  .tab-content {
+    width: max-content;
+  }
+  .tab-title {
+    width: max-content;
+    padding: clamp(16px, 5vw, 30px);
+  }
+
+  .tab-title .title {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  body {
+    font-size: 8px;
+  }
+
+  .tab-wrapper {
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .tab-title-container {
+    flex-direction: row;
+  }
+
+  .tab-content {
+    width: 100%;
+  }
+
+  nav button {
+    display: none;
+  }
+
+  #hero h1 {
+    font-size: 4.8em;
+  }
+
+  h2 {
+    font-size: 3.6em;
+  }
+  h3 {
+    font-size: 2.8em;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  body {
+    font-size: 7px;
+    text-align: left;
+  }
+
+  footer {
+    flex-direction: column-reverse;
+    gap: 45px;
   }
 }
