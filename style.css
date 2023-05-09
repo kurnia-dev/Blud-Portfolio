@@ -295,7 +295,7 @@ ul.skills-list {
 .project-container {
   display: grid;
   gap: 4.8em;
-  grid-template-columns: repeat(auto-fit, minmax(352px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
   /* flex-wrap: wrap; */
 }
 
@@ -344,4 +344,24 @@ h3.project-title {
 .project-link img {
   width: auto;
   height: 24px;
+}
+
+/* cta */
+
+#cta {
+  max-width: 1216px;
+  text-align: center;
+  background: var(--secondary-bg-color);
+  border-radius: 25px;
+  padding: 7.85em 4.2em;
+  margin: 9.2em auto;
+}
+#cta h2 {
+  font-size: clamp(30px, 5vw, 60px);
+  max-width: 662px;
+  margin: 0 auto;
+}
+
+#cta h2 span {
+  color: var(--primary-text-color);
 }
