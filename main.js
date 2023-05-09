@@ -126,7 +126,8 @@ tabTitleContainer.addEventListener('click', (e) => {
     }
     e.target.classList.add('active')
 
-    let id = e.target.getAttribute('id')
+    let id = (e.target.classList.contains('icon')) ?
+        e.target.parentElement.getAttribute('id') : e.target.getAttribute('id')
 
     showTabContent(id)
 })
