@@ -365,3 +365,18 @@ h3.project-title {
 #cta h2 span {
   color: var(--primary-text-color);
 }
+
+/* footer */
+footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3.2em 11.2em;
+}
+
+footer .footer-links {
+  display: flex;
+  flex-direction: row;
+  gap: 1.8em;
+}
