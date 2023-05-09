@@ -290,3 +290,58 @@ ul.skills-list {
   gap: 2.8em;
   margin-top: 2.8em;
 }
+
+/* Project */
+.project-container {
+  display: grid;
+  gap: 4.8em;
+  grid-template-columns: repeat(auto-fit, minmax(352px, 1fr));
+  /* flex-wrap: wrap; */
+}
+
+.project {
+  /* max-width: 40%; */
+  padding: 2.6em;
+  border-radius: 10px;
+  margin-top: 4.2em;
+  border: var(--btn-outline-border);
+}
+
+.project:hover {
+  background-color: var(--secondary-bg-color);
+  cursor: pointer;
+}
+
+.project:hover .project-image {
+  transform: scale(1.01);
+}
+h3.project-title {
+  margin-bottom: 26px;
+}
+
+.project-image {
+  width: 100%;
+  border-radius: 15px;
+}
+
+.project-tag-list-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin: 2.6em 0;
+}
+
+.project-tag-list {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.project-link {
+  display: flex;
+  gap: 16px;
+}
+.project-link img {
+  width: auto;
+  height: 24px;
+}

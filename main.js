@@ -20,7 +20,7 @@ const skills = {
         img:"res/icon/react.svg"
     },
     6: {
-        name: "NextJS", 
+        name: "Next.js", 
         img:"res/icon/next.svg"
     },
     7: {
@@ -150,3 +150,103 @@ function showTabContent(id = 1) {
     tabContentElement.append(ul)
 }
 // End of tab
+
+
+
+
+
+// Projectsss
+const projectList = {
+    1: {
+        title   : "Glib Portfolio",
+        img     : "res/project/1.jpg", 
+        desc    : "Digital agency is a landing page built with the latest version of next.js using best practices.",
+        tagList : ["HTML", "Tailwind", "TypeScript", "Next.js"], 
+        ghLink  : "#", 
+        projectLink: "#",
+    },
+    2: {
+        title   : "NFT Marketplace",
+        img     : "res/project/2.jpg", 
+        desc    : "Digital agency is a landing page built with the latest version of next.js using best practices.",
+        tagList : ["HTML", "Tailwind", "TypeScript", "Next.js"], 
+        ghLink  : "#", 
+        projectLink: "#",
+    },
+    3: {
+        title   : "Fintech landing",
+        img     : "res/project/3.jpg", 
+        desc    : "Digital agency is a landing page built with the latest version of next.js using best practices.",
+        tagList : ["HTML", "Tailwind", "Next.js"], 
+        ghLink  : "#", 
+        projectLink: "#",
+    },
+    4: {
+        title   : "Digital Agency",
+        img     : "res/project/4.jpg", 
+        desc    : "Digital agency is a landing page built with the latest version of next.js using best practices.",
+        tagList : ["HTML", "Tailwind", "TypeScript", "HTML", "Tailwind", "TypeScript", "HTML", "Tailwind", "TypeScript"], 
+        ghLink  : "#", 
+        projectLink: "#",
+    },
+}
+
+
+const projectContainer = document.querySelector('.project-container')
+
+for (let prop in projectList) {
+    let div = document.createElement('div')
+    div.classList.add('project')
+
+    let h3 = document.createElement('h3')
+    h3.classList.add('project-title')
+    h3.innerHTML = projectList[prop].title
+
+    let img = document.createElement('img')
+    img.classList.add("project-image")
+    img.src = projectList[prop].img
+    img.alt = "Project Image"   
+
+
+
+    let tagList = document.createElement('div')
+    tagList.classList.add('project-tag-list')
+
+    for (let tag of projectList[prop].tagList) {
+        let tagEl = document.createElement('small')
+        tagEl.classList.add('tag')
+        tagEl.innerHTML = tag
+
+        tagList.append(tagEl)
+    }
+
+
+
+    let projectTagListWrapper = document.createElement('div')
+    projectTagListWrapper.classList.add('project-tag-list-wrapper')
+    projectTagListWrapper.append(tagList)
+
+    let projectLinkWrapper = document.createElement('div')
+    projectLinkWrapper.classList.add('project-link')
+    projectLinkWrapper.innerHTML = `
+            <a href="${projectList[prop].ghLink}" title="View project on Github">
+                <img src="res/icon/gh.svg" alt=""/>
+            </a>
+            <a href="${projectList[prop].projectLink}" title="View Project detail in new tab">
+                <img src="res/icon/newtab.svg" alt=""/>
+            </a>
+    `
+    projectTagListWrapper.append(projectLinkWrapper)
+    
+    
+    let p = document.createElement('p')
+    p.classList.add('body-text')
+    p.innerHTML = projectList[prop].desc
+    
+    div.append(h3)
+    div.append(img)
+    div.append(projectTagListWrapper)
+    div.append(p)
+
+    projectContainer.append(div)
+}
