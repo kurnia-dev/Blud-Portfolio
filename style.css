@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  transition: 0.2s linear;
+  transition: 0.06s linear;
 }
 
 html {
@@ -33,6 +33,7 @@ html.dark {
   --icon-color: var(--white);
   --btn-outline-border: 1px solid #172135;
   --btn-filled-bg: #172135;
+  --tab-hover-color: #17213562;
 }
 
 body {
@@ -179,6 +180,7 @@ nav a {
   font-weight: 400;
   line-height: 15px;
   transition: 0.2s linear;
+  color: var(--secondary-text-color);
 }
 
 nav a span {
@@ -348,17 +350,15 @@ h3.project-title {
 
 /* cta */
 
-#cta {
-  max-width: 1216px;
+#cta .container {
+  padding: 7.85em 27.5em;
+  width: 100%;
   text-align: center;
   background: var(--secondary-bg-color);
   border-radius: 25px;
-  padding: 7.85em 4.2em;
-  margin: 9.2em auto;
 }
 #cta h2 {
   font-size: clamp(30px, 5vw, 60px);
-  max-width: 662px;
   margin: 0 auto;
 }
 
@@ -379,4 +379,14 @@ footer .footer-links {
   display: flex;
   flex-direction: row;
   gap: 1.8em;
+}
+
+@media screen and (max-width: 1024px) {
+  header,
+  section,
+  footer {
+    max-width: 1024px;
+    padding: 9.2em clamp(60px, 10vw, 112px);
+    margin: 0 auto;
+  }
 }
