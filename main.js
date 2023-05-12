@@ -117,20 +117,22 @@ for (let i in tabsTitle) {
 
 const tabContentElement = document.querySelector('.tab-content')
 const tabContentDescription = document.querySelector('.tab-content-description')
+const tabTitleList = document.querySelectorAll('.tab-title')
 
-showTabContent()
+tabTitleList.forEach(tabTitle => {
+    tabTitle.addEventListener('click', () => {
+        for (let el of tabTitleList) {
+            el.classList.remove('active')
+            tabTitle.classList.add('active')
+        }
 
-tabTitleContainer.addEventListener('click', (e) => {
-    for (let child of tabTitleContainer.children) {
-        child.classList.remove('active')
-    }
-    e.target.classList.add('active')
+        let id = tabTitle.getAttribute('id')
+        showTabContent(id)
+    })
+});
 
-    let id = (e.target.classList.contains('icon')) ?
-        e.target.parentElement.getAttribute('id') : e.target.getAttribute('id')
 
-    showTabContent(id)
-})
+showTabContent() // to load the first tab content
 
 function showTabContent(id = 1) {
     let ul = document.createElement('ul')
